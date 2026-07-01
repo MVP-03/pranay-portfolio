@@ -1,0 +1,21 @@
+# Problem
+
+Phishing website detectors from prior work (baseline: a well-known 2019
+model) had an error rate that left too much room for real-world harm, and
+needed to run fast enough for real-time use.
+
+## Approach
+
+Built a 5-model deep-learning ensemble combining quantum-inspired feature
+representations with an attention fusion mechanism. Focused training on
+loss targeting and learning-rate tuning to squeeze out accuracy without
+sacrificing inference speed. Validated with 5-fold cross-validation.
+
+## Outcome
+
+Reached 97.02% test accuracy, cutting errors by 40% versus the 2019
+baseline, at under 1ms prediction time — fast enough for real-time
+deployment. This built directly on an earlier phishing detector project
+from an AI/ML research internship at GITAM Deemed to be University.
+
+Tools: Python, PyTorch, scikit-learn.

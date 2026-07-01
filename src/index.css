@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #faf7f2;
+  --color-ink: #1c1917;
+  --color-accent: #b54a24;
+  --color-accent-soft: #ecd3bd;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-cream text-ink font-sans antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+}
+
+/* MDX case-study prose — kept minimal on purpose, no typography plugin dependency */
+.case-study h2 {
+  @apply mt-8 text-xl font-semibold;
+}
+.case-study p {
+  @apply mt-3 text-ink/80 leading-relaxed;
+}

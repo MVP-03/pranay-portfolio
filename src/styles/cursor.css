@@ -1,0 +1,15 @@
+/* Custom pixel cursor — desktop-only accent (accent spot #1 of 3).
+   Gated on (hover: hover) and (pointer: fine) so touch devices, which have
+   no cursor concept, never see this; falls back to the standard system
+   cursor if the SVG fails to load. */
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: url("/cursor-pixel.svg") 0 0, auto;
+  }
+
+  a,
+  button,
+  [role="button"] {
+    cursor: url("/cursor-pixel-pointer.svg") 4 0, pointer;
+  }
+}
