@@ -35,8 +35,8 @@ export default function ContactForm() {
 
   if (status === "success") {
     return (
-      <p className="rounded-md bg-accent-soft p-6 text-ink">
-        Thanks — I'll reply within 2 business days.
+      <p className="reveal is-visible rounded-md bg-accent-soft p-6 text-ink">
+        Thanks - I'll reply within 2 business days.
       </p>
     );
   }
@@ -52,7 +52,7 @@ export default function ContactForm() {
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
-          className="mt-1 w-full rounded-md border border-ink/20 px-3 py-2"
+          className="mt-1 w-full rounded-md border border-ink/20 px-3 py-2 transition-colors duration-150 ease-out focus:border-accent"
         />
       </div>
 
@@ -69,7 +69,7 @@ export default function ContactForm() {
           required
           aria-invalid={emailError}
           aria-describedby={emailError ? "email-error" : undefined}
-          className={`mt-1 w-full rounded-md border px-3 py-2 ${emailError ? "border-red-600" : "border-ink/20"}`}
+          className={`mt-1 w-full rounded-md border px-3 py-2 transition-colors duration-150 ease-out ${emailError ? "border-red-600" : "border-ink/20 focus:border-accent"}`}
         />
         {emailError && (
           <p id="email-error" className="mt-1 text-sm text-red-600">
@@ -88,13 +88,13 @@ export default function ContactForm() {
           onChange={(e) => setMessage(e.target.value)}
           required
           rows={5}
-          className="mt-1 w-full rounded-md border border-ink/20 px-3 py-2"
+          className="mt-1 w-full rounded-md border border-ink/20 px-3 py-2 transition-colors duration-150 ease-out focus:border-accent"
         />
       </div>
 
       {status === "error" && (
         <p className="text-sm text-red-600">
-          Something went wrong — email me directly at{" "}
+          Something went wrong - email me directly at{" "}
           <a href={`mailto:${CONTACT_EMAIL}`} className="underline">
             {CONTACT_EMAIL}
           </a>{" "}
