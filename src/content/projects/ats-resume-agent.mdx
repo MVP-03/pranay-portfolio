@@ -1,0 +1,22 @@
+# Problem
+
+Job applications get filtered by ATS keyword-matching before a human ever
+reads them, but most resume advice is generic - "add keywords" - with no
+way to see the actual gap against a specific job description, and no
+system for tracking dozens of applications across different stages.
+
+## Approach
+
+Built a full-stack AI dashboard (Next.js 15, Groq Llama 3.3 70B, Supabase)
+covering the whole application loop: an ATS scorer that checks keyword
+match, formatting, and content quality against a pasted job description;
+an AI coach that rewrites weak bullets with quantified metrics; a
+human-sounding cover letter and follow-up message generator; and a Kanban
+tracker (Wishlist → Applied → Interview → Offer) for the applications
+themselves.
+
+## Outcome
+
+A working, deployed tool that takes someone from "here's my resume and a
+job posting" to a scored, tailored application and a tracked pipeline -
+shipped and live, not a prototype.

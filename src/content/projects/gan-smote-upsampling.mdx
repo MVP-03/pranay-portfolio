@@ -1,0 +1,29 @@
+# Problem
+
+Class imbalance quietly breaks real-world ML: a fraud model trained on
+data that's 577:1 majority-to-minority can hit 99%+ accuracy by simply
+never flagging fraud, and standard oversampling methods (SMOTE and its
+variants) generate synthetic samples that never leave the convex hull of
+existing data - no genuinely new signal.
+
+## Approach
+
+Led a 4-person team (final-year capstone) building and benchmarking a
+hybrid pipeline across three real datasets - Credit Card Fraud (577:1
+imbalance), Pima Diabetes, and Breast Cancer Wisconsin. Surveyed classical
+methods (SMOTE, Borderline-SMOTE, ADASYN, SVM-SMOTE) and four GAN variants
+(cGAN, CTGAN, WGAN-GP, InfoGAN) before landing on the final architecture:
+GAN-SMOTE augmented with a Tree-Based Verification layer, where a Random
+Forest/XGBoost model audits every synthetic sample and rejects the ones
+that land in statistically inconsistent decision regions.
+
+## Outcome
+
+On Breast Cancer, the pipeline reached a perfect PR-AUC of 1.0 and an
+F1-score of 0.9841. On the extreme-imbalance Credit Card Fraud dataset, it
+hit an F1 of 0.6742 and MCC of 0.6833 - nearly double the MCC of GAN-SMOTE
+without verification (0.3527) - by filtering out synthetic samples the
+tree auditor flagged as implausible. Written up as a full project report
+at GITAM (Deemed to be University).
+
+Tools: Python, PyTorch, TensorFlow, XGBoost, scikit-learn, imbalanced-learn.
