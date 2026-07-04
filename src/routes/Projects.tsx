@@ -1,19 +1,60 @@
-import { projects } from "../content/projects/_index";
+import { projects, otherRepoGroups, githubProfileUrl } from "../content/projects/_index";
+import type { ProjectCategory } from "../types/project";
 import ProjectCard from "../components/ProjectCard";
+import Reveal from "../components/interactive/Reveal";
+
+const categoryOrder: ProjectCategory[] = ["Engineering & Product", "Machine Learning", "Cybersecurity", "Personal"];
 
 export default function Projects() {
   return (
     <div className="mx-auto max-w-5xl px-6 py-16">
-      <h1 className="text-3xl font-semibold">Projects</h1>
+      <Reveal as="h1" className="text-3xl font-semibold">
+        Projects
+      </Reveal>
+
       {projects.length > 0 ? (
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
-          ))}
-        </div>
+        categoryOrder.map((category) => {
+          const items = projects.filter((project) => project.category === category);
+          if (items.length === 0) return null;
+          return (
+            <section key={category} className="mt-12 first:mt-8">
+              <Reveal as="h2" className="text-sm font-semibold tracking-widest text-ink/60 uppercase">
+                {category}
+              </Reveal>
+              <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {items.map((project, i) => (
+                  <Reveal key={project.slug} delay={i * 80}>
+                    <ProjectCard project={project} />
+                  </Reveal>
+                ))}
+              </div>
+            </section>
+          );
+        })
       ) : (
         <p className="mt-8 text-ink/70">Projects coming soon.</p>
       )}
+
+      {/* Smaller, unlisted GitHub work - real range, not portfolio-grade individually.
+          See .plan/portfolio-plan.md-adjacent decision: grouped by method rather than
+          padding the curated list above with ~35 unlabeled scaffold repos. */}
+      <details className="group mt-16 border-t border-ink/10 pt-6">
+        <summary className="inline-flex cursor-pointer list-none items-center gap-1.5 rounded-full border border-ink/15 px-3 py-1.5 text-xs font-medium text-ink/60 transition hover:border-accent hover:text-accent">
+          <span>+{otherRepoGroups.reduce((sum, g) => sum + g.count, 0)} more experiments on GitHub</span>
+          <span className="transition-transform duration-200 ease-out group-open:rotate-180">▾</span>
+        </summary>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {otherRepoGroups.map((group) => (
+            <a
+              key={group.label}
+              href={githubProfileUrl}
+              className="rounded-full bg-accent-soft px-3 py-1 text-xs text-ink/70 transition hover:bg-accent hover:text-cream"
+            >
+              {group.label} · {group.count}
+            </a>
+          ))}
+        </div>
+      </details>
     </div>
   );
 }

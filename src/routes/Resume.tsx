@@ -1,10 +1,12 @@
+import Reveal from "../components/interactive/Reveal";
+
 const experience = [
   {
     role: "GTM Product Manager",
     org: "StepsAI",
-    dates: "Apr 2026 — Present",
+    dates: "Apr 2026 - Present",
     bullets: [
-      "Owned GTM and product execution for an AI SaaS product — market research, competitor analysis, customer segmentation, outbound, demos, and sales follow-up.",
+      "Owned GTM and product execution for an AI SaaS product - market research, competitor analysis, customer segmentation, outbound, demos, and sales follow-up.",
       "Built and managed a 100K+ lead database; created sales playbooks, outreach campaigns, pitch decks, and customer personas.",
       "Ran customer demos and translated pain points into product requirements; personally contributed ₹1L+ in MRR through solution-led selling.",
     ],
@@ -12,7 +14,7 @@ const experience = [
   {
     role: "Operations Manager",
     org: "Curvedge Modulars",
-    dates: "Nov 2025 — Apr 2026",
+    dates: "Nov 2025 - Apr 2026",
     bullets: [
       "Reduced order delays by 20% and improved on-time deliveries by 27% through order coordination, inventory tracking, and vendor follow-ups.",
       "Cut manual follow-ups by 30% via website updates, product listings, and order-flow tracking improvements.",
@@ -22,7 +24,7 @@ const experience = [
   {
     role: "AI/ML Research Intern",
     org: "GITAM Deemed to be University",
-    dates: "May 2025 — Jul 2025",
+    dates: "May 2025 - Jul 2025",
     bullets: [
       "Built a phishing detector reaching 97% accuracy, cutting errors ~40% vs. prior work.",
       "Improved data quality and feature selection; validated with 5-fold cross-validation at <1ms prediction time for real-time use.",
@@ -32,20 +34,20 @@ const experience = [
 ];
 
 const education = [
-  { school: "GITAM University", program: "B.Tech, Computer Science Engineering", dates: "Aug 2022 — May 2026", detail: "GPA: 7.83" },
+  { school: "GITAM University", program: "B.Tech, Computer Science Engineering", dates: "Aug 2022 - May 2026", detail: "GPA: 7.83" },
 ];
 
 const leadership = [
   {
     role: "Vice-President",
     org: "The Filmmakers Club",
-    dates: "Aug 2025 — Apr 2026",
+    dates: "Aug 2025 - Apr 2026",
     bullets: ["Led creative marketing campaigns increasing student engagement by 50%.", "Coordinated collaborations with external partners and club growth initiatives."],
   },
   {
     role: "Vice-President & Cultural Team Lead",
     org: "KALAKRITHI",
-    dates: "Jun 2024 — Jun 2025",
+    dates: "Jun 2024 - Jun 2025",
     bullets: ["Organized large-scale cultural events attracting over 3,000 students.", "Improved organizational visibility by 30% through strategic promotion."],
   },
 ];
@@ -68,10 +70,12 @@ function ResumeSection({
 }) {
   return (
     <section className="mt-10">
-      <h2 className="text-sm font-semibold tracking-widest text-ink/60 uppercase">{title}</h2>
+      <Reveal as="h2" className="text-sm font-semibold tracking-widest text-ink/60 uppercase">
+        {title}
+      </Reveal>
       <ul className="mt-4 space-y-6">
-        {items.map((item) => (
-          <li key={`${item.role}-${item.org}`} className="border-b border-ink/10 pb-6">
+        {items.map((item, i) => (
+          <Reveal as="li" key={`${item.role}-${item.org}`} delay={i * 60} className="border-b border-ink/10 pb-6">
             <div className="sm:flex sm:items-baseline sm:justify-between sm:gap-6">
               <p className="font-medium">
                 {item.role} · {item.org}
@@ -83,7 +87,7 @@ function ResumeSection({
                 <li key={bullet}>{bullet}</li>
               ))}
             </ul>
-          </li>
+          </Reveal>
         ))}
       </ul>
     </section>
@@ -131,7 +135,7 @@ export default function Resume() {
           {certifications.map((cert) => (
             <li key={cert.name} className="sm:flex sm:items-baseline sm:justify-between sm:gap-6">
               <p className="text-sm text-ink/80">
-                {cert.name} — <span className="text-ink/60">{cert.org}</span>
+                {cert.name} - <span className="text-ink/60">{cert.org}</span>
               </p>
               <p className="mt-1 text-sm whitespace-nowrap text-ink/60 sm:mt-0">{cert.dates}</p>
             </li>
@@ -140,12 +144,19 @@ export default function Resume() {
       </section>
 
       <section className="mt-10">
-        <h2 className="text-sm font-semibold tracking-widest text-ink/60 uppercase">Skills</h2>
+        <Reveal as="h2" className="text-sm font-semibold tracking-widest text-ink/60 uppercase">
+          Skills
+        </Reveal>
         <div className="mt-4 flex flex-wrap gap-2">
-          {[...skills.hard, ...skills.soft].map((skill) => (
-            <span key={skill} className="rounded-full bg-accent-soft px-3 py-1 text-sm">
+          {[...skills.hard, ...skills.soft].map((skill, i) => (
+            <Reveal
+              as="span"
+              key={skill}
+              delay={i * 25}
+              className="inline-block rounded-full bg-accent-soft px-3 py-1 text-sm transition-transform duration-150 ease-out hover:-translate-y-0.5"
+            >
               {skill}
-            </span>
+            </Reveal>
           ))}
         </div>
       </section>
