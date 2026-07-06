@@ -14,7 +14,7 @@ export default function Contact() {
           GitHub
         </a>
         ,{" "}
-        <a href="https://linkedin.com/in/pranay-mula-037a41288" className="text-accent hover:underline">
+        <a href="https://linkedin.com/in/venkata-pranay-mula-037a41288" className="text-accent hover:underline">
           LinkedIn
         </a>
       </p>
