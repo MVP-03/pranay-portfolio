@@ -70,7 +70,7 @@ function ResumeSection({
 }) {
   return (
     <section className="mt-10">
-      <Reveal as="h2" className="text-sm font-semibold tracking-widest text-ink/60 uppercase">
+      <Reveal as="h2" className="font-pixel text-sm tracking-widest text-ink/60 uppercase">
         {title}
       </Reveal>
       <ul className="mt-4 space-y-6">
@@ -98,7 +98,7 @@ export default function Resume() {
   return (
     <div className="mx-auto max-w-3xl px-6 py-16">
       <div className="flex flex-wrap items-center justify-between gap-4">
-        <h1 className="text-3xl font-semibold">Resume</h1>
+        <h1 className="font-pixel text-3xl tracking-wide">Resume</h1>
         <a
           href="/resume.pdf"
           download
@@ -111,7 +111,7 @@ export default function Resume() {
       <ResumeSection title="Experience" items={experience} />
 
       <section className="mt-10">
-        <h2 className="text-sm font-semibold tracking-widest text-ink/60 uppercase">Education</h2>
+        <h2 className="font-pixel text-sm tracking-widest text-ink/60 uppercase">Education</h2>
         <ul className="mt-4 space-y-4">
           {education.map((item) => (
             <li key={item.school} className="sm:flex sm:items-baseline sm:justify-between sm:gap-6">
@@ -130,7 +130,7 @@ export default function Resume() {
       <ResumeSection title="Leadership & Volunteer" items={leadership} />
 
       <section className="mt-10">
-        <h2 className="text-sm font-semibold tracking-widest text-ink/60 uppercase">Certifications</h2>
+        <h2 className="font-pixel text-sm tracking-widest text-ink/60 uppercase">Certifications</h2>
         <ul className="mt-4 space-y-2">
           {certifications.map((cert) => (
             <li key={cert.name} className="sm:flex sm:items-baseline sm:justify-between sm:gap-6">
@@ -144,7 +144,7 @@ export default function Resume() {
       </section>
 
       <section className="mt-10">
-        <Reveal as="h2" className="text-sm font-semibold tracking-widest text-ink/60 uppercase">
+        <Reveal as="h2" className="font-pixel text-sm tracking-widest text-ink/60 uppercase">
           Skills
         </Reveal>
         <div className="mt-4 flex flex-wrap gap-2">

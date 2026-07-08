@@ -26,7 +26,7 @@ export default function NavBar() {
       }`}
     >
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6">
-        <NavLink to="/" className="flex shrink-0 items-center gap-2 font-semibold" end>
+        <NavLink to="/" className="font-pixel flex shrink-0 items-center gap-2 tracking-wide" end>
           <PixelMark size={20} />
           Pranay
         </NavLink>

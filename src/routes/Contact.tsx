@@ -3,7 +3,7 @@ import ContactForm from "../components/ContactForm";
 export default function Contact() {
   return (
     <div className="mx-auto max-w-xl px-6 py-16">
-      <h1 className="text-3xl font-semibold">Contact</h1>
+      <h1 className="font-pixel text-3xl tracking-wide">Contact</h1>
       <p className="mt-2 text-ink/70">
         Or reach me directly:{" "}
         <a href="mailto:pranaysurya4@gmail.com" className="text-accent hover:underline">

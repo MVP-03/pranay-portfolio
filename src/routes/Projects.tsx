@@ -8,7 +8,7 @@ const categoryOrder: ProjectCategory[] = ["Engineering & Product", "Machine Lear
 export default function Projects() {
   return (
     <div className="mx-auto max-w-5xl px-6 py-16">
-      <Reveal as="h1" className="text-3xl font-semibold">
+      <Reveal as="h1" className="font-pixel text-3xl tracking-wide">
         Projects
       </Reveal>
 
@@ -18,7 +18,7 @@ export default function Projects() {
           if (items.length === 0) return null;
           return (
             <section key={category} className="mt-12 first:mt-8">
-              <Reveal as="h2" className="text-sm font-semibold tracking-widest text-ink/60 uppercase">
+              <Reveal as="h2" className="font-pixel text-sm tracking-widest text-ink/60 uppercase">
                 {category}
               </Reveal>
               <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

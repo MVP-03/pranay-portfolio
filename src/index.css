@@ -1,12 +1,37 @@
 @import "tailwindcss";
 
+/*
+ * Self-hosted (not a CDN) — SIL Open Font License, see public/fonts/GEIST-LICENSE.txt.
+ * Geist Sans is the site's body/display font. Geist Pixel (Square variant, matching
+ * the site's existing rectangular pixel-art accent) is reserved for short decorative
+ * labels — Vercel's own docs describe it as a display face for headlines/logos, not
+ * body copy, so it's applied selectively (nav wordmark, eyebrow labels, page titles)
+ * rather than to paragraph text or the long hero sentence.
+ */
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/geist-sans/Geist-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Pixel Square";
+  src: url("/fonts/geist-pixel/GeistPixel-Square.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --color-cream: #faf7f2;
   --color-ink: #1c1917;
   --color-accent: #b54a24;
   --color-accent-soft: #ecd3bd;
   --color-accent-deep: #7a3016;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-pixel: "Geist Pixel Square", ui-monospace, monospace;
 
   --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
