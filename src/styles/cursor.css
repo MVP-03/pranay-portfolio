@@ -1,10 +1,18 @@
-/* Custom pixel cursor — desktop-only accent (accent spot #1 of 3).
+/* Custom pixel cursor - desktop-only accent (accent spot #1 of 3).
    Gated on (hover: hover) and (pointer: fine) so touch devices, which have
    no cursor concept, never see this; falls back to the standard system
-   cursor if the SVG fails to load. */
+   cursor if the SVG fails to load. The default arrow swaps to a light-on-dark
+   variant in dark mode - the light-mode arrow is dark ink, which would be
+   invisible on a dark page background. The pointer-hover cursor stays accent-
+   colored in both themes; the accent hue has enough contrast against either
+   background. */
 @media (hover: hover) and (pointer: fine) {
   body {
     cursor: url("/cursor-pixel.svg") 0 0, auto;
+  }
+
+  :root[data-theme="dark"] body {
+    cursor: url("/cursor-pixel-dark.svg") 0 0, auto;
   }
 
   a,
