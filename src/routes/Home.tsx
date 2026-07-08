@@ -30,7 +30,7 @@ export default function Home() {
           </div>
           {/* Identity statement - resolved copy, see .plan/portfolio-plan.md */}
           <h1 className="mt-4 max-w-3xl text-center text-4xl leading-tight font-semibold text-balance sm:text-left sm:text-6xl">
-            <SplitText text="I build software - and bonds with people." />
+            <SplitText text="I help build software - and bond with people." />
           </h1>
 
           {/* Photo + about, side by side - the two halves of the same idea
