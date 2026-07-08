@@ -41,11 +41,11 @@ export default function ProjectCard({ project }: { project: Project }) {
       to={`/projects/${project.slug}`}
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
-      className="spotlight-card group block overflow-hidden rounded-lg border border-transparent transition-colors hover:border-accent focus-visible:border-accent"
+      className="spotlight-card group block overflow-hidden rounded-lg border border-ink/15 bg-cream shadow-sm transition-all duration-200 ease-out hover:-translate-y-1 hover:border-accent-deep hover:shadow-md focus-visible:border-accent-deep"
     >
       <div className="relative aspect-video w-full overflow-hidden bg-accent-soft">
         {failed ? (
-          <div className="flex h-full w-full items-center justify-center bg-accent px-4 text-center font-semibold text-cream">
+          <div className="flex h-full w-full items-center justify-center bg-accent px-4 text-center font-semibold text-ink">
             {project.cardTitle ?? project.title}
           </div>
         ) : (

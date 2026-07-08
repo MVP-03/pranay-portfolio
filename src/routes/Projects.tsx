@@ -21,9 +21,13 @@ export default function Projects() {
               <Reveal as="h2" className="font-pixel text-sm tracking-widest text-ink/60 uppercase">
                 {category}
               </Reveal>
-              <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="mt-6 flex flex-wrap gap-6">
                 {items.map((project, i) => (
-                  <Reveal key={project.slug} delay={i * 80}>
+                  <Reveal
+                    key={project.slug}
+                    delay={i * 80}
+                    className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
+                  >
                     <ProjectCard project={project} />
                   </Reveal>
                 ))}
@@ -39,7 +43,7 @@ export default function Projects() {
           See .plan/portfolio-plan.md-adjacent decision: grouped by method rather than
           padding the curated list above with ~35 unlabeled scaffold repos. */}
       <details className="group mt-16 border-t border-ink/10 pt-6">
-        <summary className="inline-flex cursor-pointer list-none items-center gap-1.5 rounded-full border border-ink/15 px-3 py-1.5 text-xs font-medium text-ink/60 transition hover:border-accent hover:text-accent">
+        <summary className="inline-flex cursor-pointer list-none items-center gap-1.5 rounded-full border border-ink/15 px-3 py-1.5 text-xs font-medium text-ink/60 transition hover:border-accent-deep hover:text-accent-deep">
           <span>+{otherRepoGroups.reduce((sum, g) => sum + g.count, 0)} more experiments on GitHub</span>
           <span className="transition-transform duration-200 ease-out group-open:rotate-180">▾</span>
         </summary>
@@ -48,7 +52,7 @@ export default function Projects() {
             <a
               key={group.label}
               href={githubProfileUrl}
-              className="rounded-full bg-accent-soft px-3 py-1 text-xs text-ink/70 transition hover:bg-accent hover:text-cream"
+              className="rounded-full bg-accent-soft px-3 py-1 text-xs text-ink/70 transition hover:bg-accent hover:text-ink"
             >
               {group.label} · {group.count}
             </a>

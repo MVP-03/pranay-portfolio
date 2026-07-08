@@ -13,7 +13,7 @@ export default function PixelMark({ size = 24 }: { size?: number }) {
       height={size}
       shapeRendering="crispEdges"
       aria-hidden="true"
-      className="shrink-0 text-accent"
+      className="shrink-0 text-accent-deep"
     >
       <g fill="currentColor">
         <rect x="3" y="1" width="2" height="1" />
