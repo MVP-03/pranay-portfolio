@@ -52,7 +52,7 @@ export default function Projects() {
             <a
               key={group.label}
               href={githubProfileUrl}
-              className="rounded-full bg-accent-soft px-3 py-1 text-xs text-ink/70 transition hover:bg-accent hover:text-ink"
+              className="rounded-full bg-accent-soft px-3 py-1 text-xs text-ink/70 transition hover:bg-accent hover:text-cream"
             >
               {group.label} · {group.count}
             </a>

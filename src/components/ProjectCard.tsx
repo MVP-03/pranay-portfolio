@@ -41,11 +41,11 @@ export default function ProjectCard({ project }: { project: Project }) {
       to={`/projects/${project.slug}`}
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
-      className="spotlight-card group block overflow-hidden rounded-lg border border-ink/15 bg-cream shadow-sm transition-all duration-200 ease-out hover:-translate-y-1 hover:border-accent-deep hover:shadow-md focus-visible:border-accent-deep"
+      className="spotlight-card group flex h-full flex-col overflow-hidden rounded-lg border border-ink/15 bg-cream shadow-sm transition-all duration-200 ease-out hover:-translate-y-1 hover:border-accent-deep hover:shadow-md focus-visible:border-accent-deep"
     >
-      <div className="relative aspect-video w-full overflow-hidden bg-accent-soft">
+      <div className="relative aspect-video w-full shrink-0 overflow-hidden bg-accent-soft">
         {failed ? (
-          <div className="flex h-full w-full items-center justify-center bg-accent px-4 text-center font-semibold text-ink">
+          <div className="flex h-full w-full items-center justify-center bg-accent px-4 text-center font-semibold text-cream">
             {project.cardTitle ?? project.title}
           </div>
         ) : (
@@ -62,10 +62,10 @@ export default function ProjectCard({ project }: { project: Project }) {
           </>
         )}
       </div>
-      <div className="relative z-[2] bg-cream p-4">
+      <div className="relative z-[2] flex flex-1 flex-col bg-cream p-4">
         <h3 className="text-lg font-semibold">{project.cardTitle ?? project.title}</h3>
         <p className="mt-1 text-sm text-ink/80">{project.outcomeLine}</p>
-        <div className="mt-3 flex flex-wrap gap-2">
+        <div className="mt-3 flex flex-wrap gap-2 pt-1 mt-auto">
           {project.tags.slice(0, 3).map((tag) => (
             <span key={tag} className="rounded-full bg-accent-soft px-2 py-0.5 text-xs">
               {tag}

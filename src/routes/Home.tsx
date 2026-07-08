@@ -74,7 +74,7 @@ export default function Home() {
                 <Magnetic>
                   <Link
                     to="/projects"
-                    className="inline-block rounded-md bg-accent px-6 py-3 font-medium text-ink shadow-sm transition hover:opacity-90"
+                    className="inline-block rounded-md bg-accent px-6 py-3 font-medium text-cream shadow-sm transition hover:opacity-90"
                   >
                     See my work
                   </Link>

@@ -102,7 +102,7 @@ export default function Resume() {
         <a
           href="/resume.pdf"
           download
-          className="rounded-md bg-accent px-4 py-2 text-sm font-medium text-ink transition hover:opacity-90"
+          className="rounded-md bg-accent px-4 py-2 text-sm font-medium text-cream transition hover:opacity-90"
         >
           Download PDF
         </a>

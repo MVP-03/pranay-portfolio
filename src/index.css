@@ -27,8 +27,8 @@
 @theme {
   --color-cream: #faf7f2;
   --color-ink: #1c1917;
-  --color-accent: #b4e1eb;
-  --color-accent-soft: #e4f3f6;
+  --color-accent: #007acc;
+  --color-accent-soft: #d6ecf8;
   --color-accent-deep: #f62440;
   --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-pixel: "Geist Pixel Square", ui-monospace, monospace;
@@ -48,8 +48,8 @@
 :root[data-theme="dark"] {
   --color-cream: #17130f;
   --color-ink: #f3ece3;
-  --color-accent: #b4e1eb;
-  --color-accent-soft: #203238;
+  --color-accent: #1a94e0;
+  --color-accent-soft: #123244;
   --color-accent-deep: #f62440;
 }
 
