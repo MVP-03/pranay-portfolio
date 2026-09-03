@@ -1,4 +1,9 @@
-export type ProjectCategory = "Personal" | "Engineering & Product" | "Cybersecurity" | "Machine Learning";
+export type ProjectCategory =
+  | "Case Studies"
+  | "Personal"
+  | "Engineering & Product"
+  | "Cybersecurity"
+  | "Machine Learning";
 
 export interface Project {
   slug: string;

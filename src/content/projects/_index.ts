@@ -12,6 +12,17 @@ import type { Project } from "../../types/project";
  */
 export const projects: Project[] = [
   {
+    slug: "spotify-listener-badges",
+    title: "Spotify Listener Badges - Product Case Study + POC",
+    cardTitle: "Spotify Listener Badges",
+    outcomeLine: "PM case study turning Spotify listening behaviour into a persistent listener identity - 8-platform evidence base, scoped MVP, working POC.",
+    tags: ["Product Management", "Research", "Case Study"],
+    image: "/projects/spotify-listener-badges.png",
+    repoUrl: "https://github.com/MVP-03/spotify-badges",
+    category: "Case Studies",
+    featured: true,
+  },
+  {
     slug: "ats-resume-agent",
     title: "ResumeAI - ATS Resume Agent",
     cardTitle: "ATS Resume Agent",

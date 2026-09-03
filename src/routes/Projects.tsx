@@ -3,7 +3,13 @@ import type { ProjectCategory } from "../types/project";
 import ProjectCard from "../components/ProjectCard";
 import Reveal from "../components/interactive/Reveal";
 
-const categoryOrder: ProjectCategory[] = ["Engineering & Product", "Machine Learning", "Cybersecurity", "Personal"];
+const categoryOrder: ProjectCategory[] = [
+  "Case Studies",
+  "Engineering & Product",
+  "Machine Learning",
+  "Cybersecurity",
+  "Personal",
+];
 
 export default function Projects() {
   return (

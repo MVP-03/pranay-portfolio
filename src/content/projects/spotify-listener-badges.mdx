@@ -1,0 +1,129 @@
+# Problem
+
+Listening is continuous, but recognition on Spotify is episodic. Wrapped
+turns a year of behaviour into a story once, in December, and then the
+slate is wiped. In between, a listener can put hundreds of hours into one
+artist, catch a future breakout act before anyone else, finish a whole
+discography or build a playlist other people live in - and get nothing
+persistent back for any of it.
+
+Spotify already measures all of those behaviours. It knows minutes
+listened, first-play dates, fan percentiles, album completion, genre and
+language spread. The product question isn't "should Spotify add badges?"
+It's: which meaningful behaviours does Spotify already measure but fail to
+recognise?
+
+The thesis: Spotify shouldn't only tell me what I listened to. It should
+show me who I am as a music fan.
+
+## Market evidence
+
+I looked at eight products where badges or status systems affect
+contribution, identity, trust or retention - deliberately including the
+cases where they didn't work, because a case study that only cites wins
+isn't evidence.
+
+TRAKLA2, an online-learning platform, ran a 281-person experiment: total
+time on task rose from 11.4h to 13.4h (~+17.5%) and sessions from 10.6 to
+12.6 (~+18.9%). Salesforce Trailhead reported 3x monthly Ranger
+completions between 2019 and 2021, with progression - not the badge
+itself - doing the work. 2025 research on Stack Overflow found badge
+design can lift both the quantity and quality of contributions, but that
+too much badge variety reduces contribution.
+
+The negative cases matter more. A study of 6,000+ GitHub developers found
+most profile achievements had no significant effect on activity. And
+research across 1.5M+ Airbnb ratings found Superhost status can *lower*
+subsequent ratings - the badge raised expectations faster than it raised
+behaviour.
+
+## What the evidence says
+
+Three conclusions shaped the design. Recognition works when the behaviour
+it marks already creates value - the badge acknowledges something real
+rather than manufacturing it. Progression beats a one-time trophy, which
+is why tiers, not trophies, are the unit. And badge quantity is not the
+strategy: GitHub and Stack Overflow both show that more achievements can
+do nothing or actively hurt. Rarity and meaning are the scarce resources,
+not badge count.
+
+## Approach: three systems, not fifty badges
+
+I mapped the full opportunity space - roughly a dozen badge families
+spanning fandom, depth, discovery, longevity, album completion, genre and
+culture, curation, social and identity - then cut the MVP to three
+systems narrow enough to actually test:
+
+**Fandom** - how deeply do I engage with one artist? Built from listening
+time, catalogue depth, consistency and percentile: Listener → Dedicated
+Fan → Top 10% → Top 1% → Top 0.1%.
+
+**Discovery** - did I find this before it broke? Built from first-listen
+timing against defined popularity milestones: Early Listener → Breakout
+Witness → First 1,000.
+
+**Listener identity** - what kind of listener am I? Derived archetypes
+like Explorer, Loyalist, Archivist, Trendsetter, Album Person, Curator.
+
+Together those three cover status, discovery and self-expression while
+keeping the first release small enough to learn from.
+
+## Proof of concept
+
+The POC demonstrates one complete loop rather than the whole ecosystem,
+starting with an artist-fandom badge because it's instantly legible,
+emotionally relevant, and fully supported by signals Spotify already has.
+Five screens: a listener profile that gives recognition a permanent home,
+a badge detail view explaining the achievement, a progress view showing
+distance to the next tier, an opt-in share card, and a recommended next
+milestone that turns recognition into progression.
+
+The behavioural loop it's testing: listen → achieve → reveal → progress →
+display → share → discover → listen. The design constraint throughout is
+that it should surface meaning that already exists in listening, never
+push people toward artificial listening to chase a tier.
+
+## Measurement
+
+I'd run a four-arm experiment - control, badges only, badges plus
+progress, badges plus progress plus optional sharing - on a 2-4 week
+baseline and a 6-8 week treatment window, comparing cohorts on retention,
+listening depth, discovery and artist-relationship metrics.
+
+The north star I'd propose is incremental meaningful listening per
+retained user. Notably *not* badges earned: that measures feature
+adoption, not value, and optimising it would push the product toward
+exactly the badge inflation the evidence warns about.
+
+## Risks and guardrails
+
+The failure modes are predictable, so each gets an explicit guardrail:
+badge inflation (keep the core set small, protect rarity), artificial
+looping and stream manipulation (meaningful-listening thresholds plus
+anti-fraud logic, and never reward behaviour that inflates streams),
+expectation inflation à la Airbnb Superhost (describe observable
+behaviour precisely, promise no quality guarantee), privacy (sensitive
+insights private by default, sharing opt-in), status anxiety (no
+mandatory public rankings) and notification fatigue (batched
+achievements with user controls).
+
+## Outcome
+
+A complete PM artefact - problem framing, mixed external evidence, badge
+opportunity map, scoped MVP, working POC, experiment design, an
+11-metric measurement framework, risk register and a five-phase roadmap -
+landing on one testable hypothesis: if Spotify recognises meaningful
+listening through persistent, progressive, socially legible achievements,
+listeners will build a stronger sense of identity and more motivation to
+return, explore and go deeper.
+
+The strongest version of the idea isn't a badge gallery. It's a Listener
+Identity Layer running across Spotify - "Spotify since 2014, Explorer,
+Top 0.5% Radiohead listener, discovered 127 artists before their
+breakout, music from 34 countries, 286 albums completed" - which turns
+listening history into a living representation of taste, fandom and
+discovery.
+
+And the honest next step isn't building fifty badges. It's testing three
+behaviours against a control group and learning which forms of
+recognition genuinely matter.
