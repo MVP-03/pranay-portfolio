@@ -83,6 +83,24 @@ def alpha_from_circle(im, tol, inset):
     return out
 
 
+def key_color(im, color, tol):
+    """Clear pixels close to `color`, by summed per-channel distance.
+
+    For art whose backdrop is an opaque near-white shape rather than a
+    transparent or uniformly white canvas - that reads as a pale slab on the
+    card, especially in dark mode, and an alpha threshold cannot touch it
+    because the backdrop is fully opaque. Keep the tolerance tight so tinted
+    fills close to white (a pale label pill, say) survive.
+    """
+    rgb = np.asarray(im.convert("RGB"), dtype=np.int16)
+    hit = np.abs(rgb - np.array(color, dtype=np.int16)).sum(axis=2) <= tol
+    a = np.asarray(im.split()[3]).copy()
+    a[hit] = 0
+    out = im.copy()
+    out.putalpha(Image.fromarray(a))
+    return out
+
+
 def fill_enclosed(im, color, min_frac, seal):
     """Fill transparent regions *enclosed* by artwork with a solid colour.
 
@@ -165,6 +183,15 @@ def main():
                          "so hollow outline logos keep their silhouette in dark mode")
     ap.add_argument("--paper-min-area", type=float, default=0.04,
                     help="with --paper, smallest enclosed region to fill, as a fraction of canvas")
+    ap.add_argument("--key", metavar="HEX",
+                    help="clear pixels close to this colour (e.g. eff9f8), for art sitting on an "
+                         "opaque near-white backdrop shape")
+    ap.add_argument("--key-tolerance", type=int, default=15,
+                    help="summed per-channel distance counted as a match for --key")
+    ap.add_argument("--crop", metavar="L,T,R,B",
+                    help="crop the source to this box first, in source px. Use it to pull one "
+                         "legible motif out of a busy diagram - a whole multi-part figure with "
+                         "labels turns to mush at card scale")
     ap.add_argument("--paper-seal", type=int, default=0,
                     help="with --paper, close outline gaps up to roughly this radius in source "
                          "px before deciding what is enclosed (try 12-16 on a ~800px logo)")
@@ -173,9 +200,13 @@ def main():
     lw, lh = (int(v) for v in args.grid.lower().split("x"))
 
     im = Image.open(args.src)
+    if args.crop:
+        im = im.crop(tuple(int(v) for v in args.crop.split(",")))
     if args.circle_mask:
         im = alpha_from_circle(im, args.bg_tolerance, args.circle_inset)
     im = im.convert("RGBA")
+    if args.key:
+        im = key_color(im, parse_color(args.key), args.key_tolerance)
     if args.paper:
         im = fill_enclosed(im, parse_color(args.paper), args.paper_min_area, args.paper_seal)
 
