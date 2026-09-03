@@ -52,8 +52,13 @@ const leadership = [
   },
 ];
 
-const certifications = [
-  { name: "Programming for Everybody (Getting Started with Python)", org: "University of Michigan", dates: "Apr 2024" },
+const certifications: { name: string; org: string; credentialId?: string; dates: string }[] = [
+  {
+    name: "Six Sigma White Belt",
+    org: "The Council for Six Sigma Certification (CSSC)",
+    credentialId: "F7TtE8HYYG",
+    dates: "Aug 2026",
+  },
 ];
 
 const skills = {
@@ -136,6 +141,9 @@ export default function Resume() {
             <li key={cert.name} className="sm:flex sm:items-baseline sm:justify-between sm:gap-6">
               <p className="text-sm text-ink/80">
                 {cert.name} - <span className="text-ink/60">{cert.org}</span>
+                {cert.credentialId && (
+                  <span className="text-ink/50"> · Credential ID: {cert.credentialId}</span>
+                )}
               </p>
               <p className="mt-1 text-sm whitespace-nowrap text-ink/60 sm:mt-0">{cert.dates}</p>
             </li>
