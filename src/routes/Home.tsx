@@ -110,9 +110,11 @@ export default function Home() {
           ) : (
             <p className="mt-6 text-ink/70">Projects coming soon.</p>
           )}
-          <Link to="/projects" className="mt-6 inline-block text-accent hover:underline">
-            View all projects →
-          </Link>
+          <div className="mt-6 flex justify-center">
+            <Link to="/projects" className="text-accent hover:underline">
+              View all projects →
+            </Link>
+          </div>
         </section>
       </div>
     </div>

@@ -51,7 +51,6 @@ export const projects: Project[] = [
     tags: ["Python", "PyTorch", "Deep Learning"],
     image: "/projects/phishing-detection.png",
     category: "Cybersecurity",
-    featured: true,
   },
   {
     slug: "gan-smote-upsampling",
